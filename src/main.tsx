@@ -1,24 +1,31 @@
-import "@/styles/index.css";
+import '@/styles/index.css'
 
-import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
-import { SiteHeader } from "./components/header";
-import { AppSidebar } from "./components/sidebar";
-import { createRoot } from "react-dom/client";
-import App from "@/components/app";
+import { SidebarInset, SidebarProvider } from '@/components/ui/sidebar'
+import { BrowserRouter, Routes, Route } from 'react-router'
+import { Home, Archive, Trash } from '@/components/app'
+import { AppSidebar } from './components/sidebar'
+import { SiteHeader } from './components/header'
+import { createRoot } from 'react-dom/client'
 
-export const iframeHeight = "800px";
-export const description = "A sidebar with a header and a search form.";
+export const iframeHeight = '800px'
+export const description = 'A sidebar with a header and a search form.'
 
-createRoot(document.getElementById("root")!).render(
+createRoot(document.getElementById('root')!).render(
   <div className="[--header-height:calc(--spacing(14))]">
-    <SidebarProvider className="flex flex-col">
-      <SiteHeader />
-      <div className="flex flex-1">
-        <AppSidebar />
-        <SidebarInset>
-          <App />
-        </SidebarInset>
-      </div>
-    </SidebarProvider>
-  </div>
-);
+    <BrowserRouter>
+      <SidebarProvider className="flex flex-col">
+        <SiteHeader />
+        <div className="flex flex-1">
+          <AppSidebar />
+          <SidebarInset>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/archive" element={<Archive />} />
+              <Route path="/trash" element={<Trash />} />
+            </Routes>
+          </SidebarInset>
+        </div>
+      </SidebarProvider>
+    </BrowserRouter>
+  </div>,
+)
