@@ -1,11 +1,14 @@
+import { useStorageContext } from '@/context/StorageContext'
 import { Save } from 'lucide-react'
 import { useState } from 'react'
 
 export const AddNote: React.FC = () => {
+  const { create } = useStorageContext()
   const [data, setData] = useState({ title: '', note: '' })
 
   const handleSubmit = () => {
-    console.log(data)
+    if (!data.title && !data.note) return
+    create(data.title, data.note)
     setData({ title: '', note: '' })
   }
 
