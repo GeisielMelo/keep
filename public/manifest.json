@@ -1,0 +1,11 @@
+{
+  "short_name": "KEEP",
+  "name": "KEEP - Organize your notes intelligently",
+  "description": "KEEP is a modern app to organize, search, and archive your notes quickly, securely, and intelligently.",
+  "icons": [{ "src": "/keep.svg", "type": "image/svg+xml", "sizes": "any" }],
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f9d423",
+  "theme_color": "#f9d423",
+  "orientation": "portrait"
+}
