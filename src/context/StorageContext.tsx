@@ -4,6 +4,8 @@ import { v4 as uuidv4 } from 'uuid'
 
 export type StorageContextType = {
   notes: INote[]
+  search: string
+  setSearch: React.Dispatch<React.SetStateAction<string>>
   create: (title: string, note: string) => void
   update: (id: string, updatedFields: Partial<INote>) => void
   remove: (id: string) => void
@@ -23,6 +25,7 @@ const setNotesToStorage = (notes: INote[]) => {
 }
 
 export const StorageProvider = ({ children }: StorageProviderProps) => {
+  const [search, setSearch] = useState('')
   const [notes, setNotes] = useState<INote[]>(getNotesFromStorage())
 
   // CREATE
@@ -48,18 +51,13 @@ export const StorageProvider = ({ children }: StorageProviderProps) => {
     setNotesToStorage(updated)
   }
 
-  return (
-    <StorageContext.Provider value={{ notes, create, update, remove }}>
-      {children}
-    </StorageContext.Provider>
-  )
+  return <StorageContext.Provider value={{ notes, search, setSearch, create, update, remove }}>{children}</StorageContext.Provider>
 }
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const useStorageContext = (): StorageContextType => {
   const context = useContext(StorageContext)
-  if (context === undefined)
-    throw new Error('useStorageContext must be used within an StorageProvider')
+  if (context === undefined) throw new Error('useStorageContext must be used within an StorageProvider')
 
   return context
 }

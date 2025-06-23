@@ -6,7 +6,10 @@ import { StorageProvider } from './context/StorageContext'
 import { AppSidebar } from './components/sidebar'
 import { SiteHeader } from './components/header'
 import { createRoot } from 'react-dom/client'
-import { Tab } from '@/components/tab'
+import Archive from './view/archive'
+import Search from './view/search'
+import Trash from './view/trash'
+import Home from './view/home'
 
 export const iframeHeight = '800px'
 export const description = 'A sidebar with a header and a search form.'
@@ -21,9 +24,10 @@ createRoot(document.getElementById('root')!).render(
             <AppSidebar />
             <SidebarInset>
               <Routes>
-                <Route path="/" element={<Tab status="active" />} />
-                <Route path="/archive" element={<Tab status="archive" />} />
-                <Route path="/trash" element={<Tab status="trash" />} />
+                <Route path="/" element={<Home />} />
+                <Route path="/archive" element={<Archive />} />
+                <Route path="/trash" element={<Trash />} />
+                <Route path="/search" element={<Search />} />
               </Routes>
             </SidebarInset>
           </div>
