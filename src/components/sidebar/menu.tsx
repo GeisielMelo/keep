@@ -15,7 +15,7 @@ export const SidebarAppMenu: React.FC = () => {
     <SidebarMenu>
       {items.map(item => (
         <SidebarMenuItem key={item.title}>
-          <SidebarMenuButton asChild className='rounded-full bg-[#425bb2] hover:bg-[#425bb2]/80 active:bg-[#425bb2]/80 h-12 transition-all text-white hover:text-white'>
+          <SidebarMenuButton asChild className='rounded bg-background hover:bg-background/80 active:bg-background/80 h-10 transition-all border'>
             <button className='px-4 py-4' onClick={()=> navigate(item.url)}>
               <item.icon />
               <span>{item.title}</span>

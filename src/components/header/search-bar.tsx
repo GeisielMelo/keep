@@ -15,7 +15,7 @@ export const SearchBar: React.FC = () => {
           value={search}
           onChange={e => setSearch(e.target.value)}
           placeholder="Type to search..."
-          className="h-10 pl-4 outline-none border w-full rounded"
+          className="h-10 pl-4 outline-none border w-full rounded bg-sidebar"
         />
         <Search className="pointer-events-none absolute top-1/2 right-4 size-4 -translate-y-1/2 opacity-50 select-none" />
       </div>
