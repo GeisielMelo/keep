@@ -2,6 +2,7 @@ import { useSidebar } from '@/components/ui/sidebar'
 import { Button } from '@/components/ui/button'
 import { SearchBar } from './search-bar'
 import { Menu } from 'lucide-react'
+import { ModeToggle } from '../ui/mode-toggle'
 
 export function SiteHeader() {
   const { toggleSidebar } = useSidebar()
@@ -16,6 +17,7 @@ export function SiteHeader() {
         <div className="flex w-full justify-center items-center px-4">
           <SearchBar />
         </div>
+        <ModeToggle/>
       </div>
     </header>
   )
